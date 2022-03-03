@@ -1,3 +1,16 @@
 .thegames {
   font-size: 2.5rem;
 }
+
+.gamecontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+th,
+td {
+  width: 250px;
+  text-align: center;
+  border: 1px solid rgb(250, 243, 243);
+  padding: 5px;
+}
