@@ -21,17 +21,14 @@ export default function GameTable({ details, image }) {
           </thead>
         </div>
         <tbody>
-          <tb id="Title">Title</tb>
-          <tb id="Rating">Rating</tb>
-          <tb id="Genre">Genre</tb>
-          <tb id="Year">Year</tb>
-          <tb id="Developer">Developer</tb>{" "}
+          <tb id="Title">{details.title}</tb>
+          <tb id="Rating">{details.rating}</tb>
+          <tb id="Genre">{details.genre}</tb>
+          <tb id="Year">{details.year}</tb>
+          <tb id="Developer">{details.developer}</tb>{" "}
           {/*make this into the props to get the games from API */}
         </tbody>
       </table>
-      <div>
-        <img src={image} alt=""></img>
-      </div>
     </div>
   );
 }
