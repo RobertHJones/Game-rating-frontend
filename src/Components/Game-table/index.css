@@ -5,12 +5,16 @@
 .gamecontainer {
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
 }
 
-th,
-td {
-  width: 250px;
+th {
+  width: 18rem;
   text-align: center;
   border: 1px solid rgb(250, 243, 243);
   padding: 5px;
+}
+
+th + th + th + th + th + th {
+  width: 35rem;
 }
