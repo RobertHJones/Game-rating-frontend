@@ -22,14 +22,21 @@ export default function GameTable({ details }) {
             <th>Image</th>
           </thead>
         </div>
-        <tbody>
-          {/* <tb id="Title">{details.title}</tb>
-          <tb id="Rating">{details.rating}</tb>
-          <tb id="Genre">{details.genre}</tb>
-          <tb id="Year">{details.year}</tb>
-          <tb id="Developer">{details.developer}</tb>{" "} */}
-          {/*make this into the props to get the games from API */}
-        </tbody>
+        {details &&
+          details.map((item) => {
+            return (
+              <tbody>
+                <tb id="Title">{item.title}</tb>
+                <tb id="Rating">{item.rating}</tb>
+                <tb id="Genre">{item.genre}</tb>
+                <tb id="Year">{item.year}</tb>
+                <tb id="Developer">{item.developer}</tb>
+                <tb id="Comments">{item.comments}</tb>
+                <tb id="Image">{item.image}</tb>
+                {/*make this into the props to get the games from API */}
+              </tbody>
+            );
+          })}
       </table>
     </div>
   );
