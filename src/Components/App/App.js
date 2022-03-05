@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <InputGet />{" "}
+      <InputGet /> {/* onSubmit = {fetch request in here} */}
       {/*onSubmit fetchdata or something for the input which then goes into the fetch request*/}
       <GameTable /> {/*the response from the fetch request goes into this*/}
       <InputPost />

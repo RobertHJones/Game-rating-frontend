@@ -1,14 +1,49 @@
 import React from "react";
+import { useState } from "react";
 import "./index.css";
 
-export default function InputGet() {
+export default function InputGet({ onSubmit }) {
+  const [title, setTitle] = useState("");
+  const [genre, setGenre] = useState("");
+  const [rating, setRating] = useState("");
+  const [form, setForm] = useState({});
+
+  function getTitleValue(e) {
+    setTitle(e.target.value);
+    console.log(title);
+  }
+
+  function getGenreValue(e) {
+    setGenre(e.target.value);
+    console.log(genre);
+  }
+
+  function getRatingValue(e) {
+    setRating(e.target.value);
+    console.log(rating);
+  }
+
+  setForm({ title: title, genre: genre, rating: rating });
+
+  function searchGames(e) {
+    e.preventDefault();
+
+    onSubmit(form);
+  }
+
   return (
     <div>
-      <input aria-label="game-input" id="game-input" placeholder="Title" />
+      <input
+        name="title"
+        aria-label="game-input"
+        id="game-input"
+        placeholder="Title"
+        onChange={getTitleValue}
+      />
       <label for="genres" class="label">
         Choose a genre
       </label>
-      <select id="genres" name="genres">
+      <select onChange={getGenreValue} id="genres" name="genres">
         <option value=""></option>
         <option value="3D Platformer">3D Platformer</option>
         <option value="Action">Action</option>
@@ -30,7 +65,7 @@ export default function InputGet() {
       <label for="ratings" class="label">
         Choose Rob's rating (%)
       </label>
-      <select id="ratings" name="ratings">
+      <select onChange={getRatingValue} id="ratings" name="ratings">
         <option value=""></option>
         <option value="80-100">80-100</option>
         <option value="60-80">60-80</option>
@@ -38,7 +73,9 @@ export default function InputGet() {
         <option value="20-40">20-40</option>
         <option value="0-20">0-20</option>
       </select>
-      <button id="game-button">Search</button>
+      <button onClick={searchGames} id="game-button">
+        Search
+      </button>
     </div>
   );
 }
