@@ -6,7 +6,7 @@ export default function InputGet({ onSubmit }) {
   const [title, setTitle] = useState("");
   const [genre, setGenre] = useState("");
   const [rating, setRating] = useState("");
-  const [form, setForm] = useState({});
+  // const [form, setForm] = useState({});
 
   function getTitleValue(e) {
     setTitle(e.target.value);
@@ -23,12 +23,12 @@ export default function InputGet({ onSubmit }) {
     console.log(rating);
   }
 
-  setForm({ title: title, genre: genre, rating: rating });
+  // setForm({ title: title, genre: genre, rating: rating });
 
   function searchGames(e) {
     e.preventDefault();
 
-    onSubmit(form);
+    onSubmit(title);
   }
 
   return (

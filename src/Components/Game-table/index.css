@@ -8,7 +8,8 @@
   margin-top: 2rem;
 }
 
-th {
+th,
+td {
   width: 18rem;
   text-align: center;
   border: 1px solid rgb(250, 243, 243);
@@ -17,4 +18,13 @@ th {
 
 th + th + th + th + th + th {
   width: 35rem;
+}
+
+#Comments {
+  font-size: 2rem;
+}
+
+#Image {
+  width: 400px;
+  height: auto;
 }

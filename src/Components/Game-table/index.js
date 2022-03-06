@@ -11,28 +11,29 @@ export default function GameTable({ details }) {
     <div class="gamecontainer">
       <table class="thegames">
         {" "}
-        <div>
-          <thead>
-            <th>Title</th>
-            <th>Rating</th>
-            <th>Genre</th>
-            <th>Year</th>
-            <th>Developer</th>
-            <th>Comments</th>
-            <th>Image</th>
-          </thead>
-        </div>
+        <thead>
+          <th>Title</th>
+          <th>Rating</th>
+          <th>Genre</th>
+          <th>Year</th>
+          <th>Developer</th>
+          <th>Comments</th>
+          <th>Image</th>
+        </thead>
         {details &&
           details.map((item) => {
             return (
               <tbody>
-                <tb id="Title">{item.title}</tb>
-                <tb id="Rating">{item.rating}</tb>
-                <tb id="Genre">{item.genre}</tb>
-                <tb id="Year">{item.year}</tb>
-                <tb id="Developer">{item.developer}</tb>
-                <tb id="Comments">{item.comments}</tb>
-                <tb id="Image">{item.image}</tb>
+                <td id="Title">{item.title}</td>
+                <td id="Rating">{item.rating}</td>
+                <td id="Genre">{item.genre}</td>
+                <td id="Year">{item.year}</td>
+                <td id="Developer">{item.developer}</td>
+                <td id="Comments">{item.comments}</td>
+                <td>
+                  <img id="Image" src={item.image} alt="game" />
+                </td>
+
                 {/*make this into the props to get the games from API */}
               </tbody>
             );
