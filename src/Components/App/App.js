@@ -13,17 +13,17 @@ function App() {
     console.log(API_URL);
     const response = await fetch(`${API_URL}/?title=${title}`);
     const data = await response.json();
-    console.log(data);
+    console.log(data.payload[0].id);
     setGameData(data.payload);
   }
+
+  // game not fetching on the deploy - fix this and increase search parameters to other fields
 
   return (
     <div className="App">
       <Header />
       <InputGet onSubmit={fetchGames} />
-      <GameTable details={gameData} key={gameData.id} />{" "}
-      {/* need to figure out how to display a table in rows etc using React */}
-      <InputPost />
+      <GameTable details={gameData} key={gameData.id} /> <InputPost />
     </div>
   );
 }
