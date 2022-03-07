@@ -21,9 +21,7 @@ function App() {
     setGameData(data.payload);
   }
 
-  // game not fetching on the deploy - fix this and increase search parameters to other fields
-
-  // could use useeffect to set gameData to [] when title changes to clear the previous search - it's already doing this though?
+  // game not fetching on the deploy - fix this
 
   return (
     <div className="App">

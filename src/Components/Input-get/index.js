@@ -11,7 +11,7 @@ export default function InputGet({ onSubmit }) {
   const { register, handleSubmit } = useForm();
 
   function onFormSubmit(data) {
-    console.log(data);
+    console.log("initial search is", data);
     setGame(data);
   }
 
