@@ -1,81 +1,89 @@
 import React from "react";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import "./index.css";
 
 export default function InputGet({ onSubmit }) {
-  const [title, setTitle] = useState("");
+  const [game, setGame] = useState("");
   const [genre, setGenre] = useState("");
   const [rating, setRating] = useState("");
-  // const [form, setForm] = useState({});
 
-  function getTitleValue(e) {
-    setTitle(e.target.value);
-    console.log(title);
+  const { register, handleSubmit } = useForm();
+
+  function onFormSubmit(data) {
+    console.log(data);
+    setGame(data);
   }
 
-  function getGenreValue(e) {
-    setGenre(e.target.value);
-    console.log(genre);
-  }
+  // function getTitleValue(e) {
+  //   setTitle(e.target.value);
+  //   console.log(title);
+  // }
 
-  function getRatingValue(e) {
-    setRating(e.target.value);
-    console.log(rating);
-  }
+  // function getGenreValue(e) {
+  //   setGenre(e.target.value);
+  //   console.log(genre);
+  // }
 
-  // setForm({ title: title, genre: genre, rating: rating });
+  // function getRatingValue(e) {
+  //   setRating(e.target.value);
+  //   console.log(rating);
+  // }
 
   function searchGames(e) {
-    e.preventDefault();
+    // e.preventDefault();
 
-    onSubmit(title);
+    onSubmit(game); // put onClick as searchGames and put data into here instead of title, may need to set data with state
   }
 
   return (
-    <div>
-      <input
-        name="title"
-        aria-label="game-input"
-        id="game-input"
-        placeholder="Title"
-        onChange={getTitleValue}
-      />
-      <label for="genres" class="label">
-        Choose a genre
-      </label>
-      <select onChange={getGenreValue} id="genres" name="genres">
-        <option value=""></option>
-        <option value="3D Platformer">3D Platformer</option>
-        <option value="Action">Action</option>
-        <option value="Adventure">Adventure</option>
-        <option value="Casual">Casual</option>
-        <option value="Fighting">Fighting</option>
-        <option value="First Person Puzzle">First Person Puzzle</option>
-        <option value="First Person Shooter">First Person Shooter</option>
-        <option value="God Simulator">God Simulator</option>
-        <option value="Puzzle">Puzzle</option>
-        <option value="Racing">Racing</option>
-        <option value="Real Time Strategy">Real Time Strategy</option>
-        <option value="RPG">RPG</option>
-        <option value="Sandbox">Sandbox</option>
-        <option value="Sports Simulation">Sports Simulation</option>
-        <option value="Third Person Action">Third Person Action</option>
-        <option value="Turn Based Strategy">Turn Based Strategy</option>
-      </select>
-      <label for="ratings" class="label">
-        Choose Rob's rating (%)
-      </label>
-      <select onChange={getRatingValue} id="ratings" name="ratings">
-        <option value=""></option>
-        <option value="80-100">80-100</option>
-        <option value="60-80">60-80</option>
-        <option value="40-60">40-60</option>
-        <option value="20-40">20-40</option>
-        <option value="0-20">0-20</option>
-      </select>
-      <button onClick={searchGames} id="game-button">
-        Search
-      </button>
-    </div>
+    <form onSubmit={handleSubmit(onFormSubmit)}>
+      <div>
+        <input
+          name="title"
+          aria-label="game-input"
+          id="game-input"
+          placeholder="Title"
+          // onChange={getTitleValue}
+          {...register("title")}
+        />
+        <label for="genres" class="label">
+          Choose a genre
+        </label>
+        <select id="genres" name="genre" {...register("genre")}>
+          <option value=""></option>
+          <option value="3D Platformer">3D Platformer</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Casual">Casual</option>
+          <option value="Fighting">Fighting</option>
+          <option value="First Person Puzzle">First Person Puzzle</option>
+          <option value="First Person Shooter">First Person Shooter</option>
+          <option value="God Simulator">God Simulator</option>
+          <option value="Puzzle">Puzzle</option>
+          <option value="Racing">Racing</option>
+          <option value="Real Time Strategy">Real Time Strategy</option>
+          <option value="RPG">RPG</option>
+          <option value="Sandbox">Sandbox</option>
+          <option value="Sports Simulation">Sports Simulation</option>
+          <option value="Third Person Action">Third Person Action</option>
+          <option value="Turn Based Strategy">Turn Based Strategy</option>
+        </select>
+        <label for="ratings" class="label">
+          Choose Rob's rating (%)
+        </label>
+        <select id="ratings" name="rating" {...register("rating")}>
+          <option value=""></option>
+          <option value="80-100">80-100</option>
+          <option value="60-80">60-80</option>
+          <option value="40-60">40-60</option>
+          <option value="20-40">20-40</option>
+          <option value="0-20">0-20</option>
+        </select>
+        <button onClick={searchGames} id="game-button">
+          Search
+        </button>
+      </div>
+    </form>
   );
 }
