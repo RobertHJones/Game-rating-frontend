@@ -16,6 +16,8 @@ function App() {
     const response = await fetch(
       `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
     );
+    console.log("response", response);
+
     const data = await response.json();
     console.log(data.payload);
     setGameData(data.payload);
