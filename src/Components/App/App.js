@@ -16,7 +16,7 @@ function App() {
     const response = await fetch(
       `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
     );
-    console.log("response", response);
+    console.log("response", response.json());
 
     const data = await response.json();
     console.log(data.payload);
