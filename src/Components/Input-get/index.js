@@ -7,50 +7,57 @@ export default function InputGet({ onSubmit }) {
   const [game, setGame] = useState("");
   const [genre, setGenre] = useState("");
   const [rating, setRating] = useState("");
+  const [title, setTitle] = useState("");
 
   const { register, handleSubmit } = useForm();
 
-  function onFormSubmit(data) {
-    console.log("initial search is", data);
-    setGame(data);
+  // function onFormSubmit(data) {
+  //   console.log("initial search is", data);
+  //   setGame(data);
+  // }
+
+  function getTitleValue(e) {
+    setTitle(e.target.value);
+    console.log(title);
   }
 
-  // function getTitleValue(e) {
-  //   setTitle(e.target.value);
-  //   console.log(title);
-  // }
+  function getGenreValue(e) {
+    setGenre(e.target.value);
+    console.log(genre);
+  }
 
-  // function getGenreValue(e) {
-  //   setGenre(e.target.value);
-  //   console.log(genre);
-  // }
-
-  // function getRatingValue(e) {
-  //   setRating(e.target.value);
-  //   console.log(rating);
-  // }
+  function getRatingValue(e) {
+    setRating(e.target.value);
+    console.log(rating);
+  }
 
   function searchGames(e) {
-    // e.preventDefault();
+    e.preventDefault();
 
-    onSubmit(game); // put onClick as searchGames and put data into here instead of title, may need to set data with state
+    onSubmit(title, genre, rating); // put onClick as searchGames and put data into here instead of title, may need to set data with state
   }
 
   return (
-    <form onSubmit={handleSubmit(onFormSubmit)}>
+    // <form onSubmit={handleSubmit(onFormSubmit)}>
+    <form>
       <div>
         <input
           name="title"
           aria-label="game-input"
           id="game-input"
           placeholder="Title"
-          // onChange={getTitleValue}
-          {...register("title")}
+          onChange={getTitleValue}
+          // {...register("title")}
         />
         <label for="genres" class="label">
           Choose a genre
         </label>
-        <select id="genres" name="genre" {...register("genre")}>
+        <select
+          id="genres"
+          name="genre"
+          onChange={getGenreValue}
+          // {...register("genre")}>
+        >
           <option value=""></option>
           <option value="3D Platformer">3D Platformer</option>
           <option value="Action">Action</option>
@@ -72,7 +79,12 @@ export default function InputGet({ onSubmit }) {
         <label for="ratings" class="label">
           Choose Rob's rating (%)
         </label>
-        <select id="ratings" name="rating" {...register("rating")}>
+        <select
+          id="ratings"
+          name="rating"
+          onChange={getRatingValue}
+          // {...register("rating")}
+        >
           <option value=""></option>
           <option value="80-100">80-100</option>
           <option value="60-80">60-80</option>

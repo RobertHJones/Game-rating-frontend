@@ -9,8 +9,8 @@ import API_URL from "../../config/index";
 function App() {
   const [gameData, setGameData] = useState([]);
 
-  async function fetchGames(game) {
-    const { title, genre, rating } = game;
+  async function fetchGames(title, genre, rating) {
+    // const { title, genre, rating } = game;
     console.log("this is", title);
     // // destructure the object here
     const response = await fetch(
