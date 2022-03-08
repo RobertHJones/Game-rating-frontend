@@ -4,7 +4,9 @@ import InputGet from "../Input-get";
 import GameTable from "../Game-table";
 import InputPost from "../Input-post";
 import { useState } from "react";
-import API_URL from "../../config/index";
+// import API_URL from "../../config/index";
+
+const API_URL = "https://dbdb-game-db.herokuapp.com/games";
 
 function App() {
   const [gameData, setGameData] = useState([]);
@@ -15,7 +17,7 @@ function App() {
     // // destructure the object here
     const response = await fetch(
       // `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
-      `https://dbdb-game-db.herokuapp.com/games/?title=${title}&genre=${genre}&band=${rating}`
+      `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
     );
     console.log("response", response);
 
