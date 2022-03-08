@@ -14,7 +14,8 @@ function App() {
     console.log("this is", title);
     // // destructure the object here
     const response = await fetch(
-      `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
+      // `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
+      `https://dbdb-game-db.herokuapp.com/games/?title=${title}&genre=${genre}&band=${rating}`
     );
     console.log("response", response);
 
