@@ -34,7 +34,7 @@ export default function InputGet({ onSubmit }) {
   function searchGames(e) {
     e.preventDefault();
 
-    onSubmit(title, genre, rating); // put onClick as searchGames and put data into here instead of title, may need to set data with state
+    onSubmit(title, genre, rating);
   }
 
   return (
@@ -92,7 +92,7 @@ export default function InputGet({ onSubmit }) {
           <option value="20-40">20-40</option>
           <option value="0-20">0-20</option>
         </select>
-        <button onClick={searchGames} id="game-button">
+        <button onClick={searchGames} className="game-button">
           Search
         </button>
       </div>
