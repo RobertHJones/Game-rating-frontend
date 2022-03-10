@@ -16,7 +16,18 @@ export default function GameTable({ details }) {
           <th>Comments</th>
           <th>Image</th>
         </thead>
-        {details &&
+        {details.length === 0 && (
+          <tbody>
+            <td id="Title">No results found</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tbody>
+        )}
+        {details.length > 0 &&
           details.map((item) => {
             return (
               <tbody>
