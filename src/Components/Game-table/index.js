@@ -18,7 +18,7 @@ export default function GameTable({ details }) {
         </thead>
         {details.length === 0 && (
           <tbody>
-            <td id="Title">No results found</td>
+            <td id="Title">No results found - make a new search</td>
             <td></td>
             <td></td>
             <td></td>
