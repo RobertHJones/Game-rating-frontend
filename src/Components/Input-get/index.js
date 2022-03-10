@@ -1,20 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+
 import "./index.css";
 
 export default function InputGet({ onSubmit }) {
-  const [game, setGame] = useState("");
   const [genre, setGenre] = useState("");
   const [rating, setRating] = useState("");
   const [title, setTitle] = useState("");
-
-  const { register, handleSubmit } = useForm();
-
-  // function onFormSubmit(data) {
-  //   console.log("initial search is", data);
-  //   setGame(data);
-  // }
 
   function getTitleValue(e) {
     setTitle(e.target.value);
@@ -38,7 +30,6 @@ export default function InputGet({ onSubmit }) {
   }
 
   return (
-    // <form onSubmit={handleSubmit(onFormSubmit)}>
     <form>
       <div>
         <input
@@ -47,17 +38,11 @@ export default function InputGet({ onSubmit }) {
           id="game-input"
           placeholder="Title"
           onChange={getTitleValue}
-          // {...register("title")}
         />
         <label for="genres" class="label">
           Choose a genre
         </label>
-        <select
-          id="genres"
-          name="genre"
-          onChange={getGenreValue}
-          // {...register("genre")}>
-        >
+        <select id="genres" name="genre" onChange={getGenreValue}>
           <option value=""></option>
           <option value="3D Platformer">3D Platformer</option>
           <option value="Action">Action</option>
@@ -79,12 +64,7 @@ export default function InputGet({ onSubmit }) {
         <label for="ratings" class="label">
           Choose Rob's rating (%)
         </label>
-        <select
-          id="ratings"
-          name="rating"
-          onChange={getRatingValue}
-          // {...register("rating")}
-        >
+        <select id="ratings" name="rating" onChange={getRatingValue}>
           <option value=""></option>
           <option value="80-100">80-100</option>
           <option value="60-80">60-80</option>
