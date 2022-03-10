@@ -22,6 +22,7 @@ function App() {
     console.log("response", response);
 
     const data = await response.json();
+
     console.log(data.payload);
     setGameData(data.payload);
   }

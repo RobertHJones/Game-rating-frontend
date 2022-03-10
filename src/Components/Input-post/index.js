@@ -29,17 +29,35 @@ export default function InputPost() {
             placeholder="Title"
             {...register("title")}
           />
+          <select
+            name="genre"
+            id="genreinput"
+            placeholder="Genre"
+            {...register("genre")}
+          >
+            <option value="">Choose a genre</option>
+            <option value="3D Platformer">3D Platformer</option>
+            <option value="Action">Action</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Casual">Casual</option>
+            <option value="Fighting">Fighting</option>
+            <option value="First Person Puzzle">First Person Puzzle</option>
+            <option value="First Person Shooter">First Person Shooter</option>
+            <option value="God Simulator">God Simulator</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="Racing">Racing</option>
+            <option value="Real Time Strategy">Real Time Strategy</option>
+            <option value="RPG">RPG</option>
+            <option value="Sandbox">Sandbox</option>
+            <option value="Sports Simulation">Sports Simulation</option>
+            <option value="Third Person Action">Third Person Action</option>
+            <option value="Turn Based Strategy">Turn Based Strategy</option>
+          </select>
           <input
             name="rating"
             id="ratinginput"
             placeholder="Rating"
             {...register("rating")}
-          />
-          <input
-            name="genre"
-            id="genreinput"
-            placeholder="Genre"
-            {...register("genre")}
           />
           <input
             name="year"
