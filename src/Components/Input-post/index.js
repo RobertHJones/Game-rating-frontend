@@ -13,32 +13,55 @@ export default function InputPost() {
     setUploadedImages(images);
   };
 
+  function getBand(str) {
+    const num = Number(str);
+    console.log(num);
+    if (num <= 20) {
+      return "0-20";
+    } else if (num <= 40) {
+      return "20-40";
+    } else if (num <= 60) {
+      return "40-60";
+    } else if (num <= 80) {
+      return "60-80";
+    } else if (num <= 100) {
+      return "80-100";
+    } else {
+      return "N/A";
+    }
+  }
+
   async function onFormSubmit(data) {
     const gamePostData = Object.assign(data, {
       image: uploadedImages,
     });
-    console.log(gamePostData);
+    // console.log(gamePostData);
 
-    const { title, rating, genre, year, developer, comment, image } =
-      gamePostData;
+    const band = getBand(gamePostData.rating);
+    console.log("the band is", band);
 
-    const post = await fetch(`${API_URL}`, {
-      method: "POST",
-      header: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: title,
-        rating: rating,
-        band: "80-100", // take this from the input
-        genre: genre,
-        year: year,
-        developer: developer,
-        comments: comment,
-        image: "https://www.elevana.com/images/blogs/Shrug.jpg", // use cloudinary
-      }),
-    });
-    const result = post.json();
+    const finalData = Object.assign(gamePostData, { band: band });
+    console.log(finalData);
+
+    const { title, rating, genre, year, developer, comments } = finalData;
+
+    // const post = await fetch(`${API_URL}`, {
+    //   method: "POST",
+    //   header: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     title: title,
+    //     rating: rating,
+    //     band: band,
+    //     genre: genre,
+    //     year: year,
+    //     developer: developer,
+    //     comments: comment,
+    //     image: "https://www.elevana.com/images/blogs/Shrug.jpg", // use cloudinary
+    //   }),
+    // });
+    // const result = post.json();
   }
 
   return (

@@ -1,5 +1,5 @@
 import "./App.css";
-import Header from "../Header";
+import Header from "../Header/index.js";
 import InputGet from "../Input-get";
 import GameTable from "../Game-table";
 import InputPost from "../Input-post";
