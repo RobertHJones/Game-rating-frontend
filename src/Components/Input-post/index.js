@@ -19,7 +19,8 @@ export default function InputPost() {
     });
     console.log(gamePostData);
 
-    const { title, rating, genre, year, developer, comment } = gamePostData;
+    const { title, rating, genre, year, developer, comment, image } =
+      gamePostData;
 
     const post = await fetch(`${API_URL}`, {
       method: "POST",
@@ -29,14 +30,15 @@ export default function InputPost() {
       body: JSON.stringify({
         title: title,
         rating: rating,
-        band: "80-100",
+        band: "80-100", // take this from the input
         genre: genre,
         year: year,
         developer: developer,
         comments: comment,
-        image: "https://www.elevana.com/images/blogs/Shrug.jpg",
+        image: "https://www.elevana.com/images/blogs/Shrug.jpg", // use cloudinary
       }),
     });
+    const result = post.json();
   }
 
   return (
