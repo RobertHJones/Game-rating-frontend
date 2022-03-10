@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import ImageUploader from "../ImageUploader";
 
+const API_URL = "https://dbdb-game-db.herokuapp.com/games";
+
 export default function InputPost() {
   const { register, handleSubmit } = useForm();
   const [uploadedImages, setUploadedImages] = useState("");
@@ -11,11 +13,30 @@ export default function InputPost() {
     setUploadedImages(images);
   };
 
-  function onFormSubmit(data) {
+  async function onFormSubmit(data) {
     const gamePostData = Object.assign(data, {
       image: uploadedImages,
     });
     console.log(gamePostData);
+
+    const { title, rating, genre, year, developer, comment } = gamePostData;
+
+    const post = await fetch(`${API_URL}`, {
+      method: "POST",
+      header: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        title: title,
+        rating: rating,
+        band: "80-100",
+        genre: genre,
+        year: year,
+        developer: developer,
+        comments: comment,
+        image: "https://www.elevana.com/images/blogs/Shrug.jpg",
+      }),
+    });
   }
 
   return (
