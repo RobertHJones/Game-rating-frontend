@@ -20,7 +20,7 @@
   margin: 0.6rem;
 }
 
-#game-button {
+.game-button {
   height: 2.5rem;
   width: 15rem;
   margin-left: 4rem;
@@ -29,7 +29,7 @@
   margin-bottom: 0.5rem;
 }
 
-#game-button:hover {
+.game-button:hover {
   background-color: white;
   font-family: Arial;
 }

@@ -43,7 +43,8 @@ export default function InputPost() {
     const finalData = Object.assign(gamePostData, { band: band });
     console.log(finalData);
 
-    const { title, rating, genre, year, developer, comments } = finalData;
+    const { title, rating, genre, year, developer, comments, image } =
+      finalData;
 
     // const post = await fetch(`${API_URL}`, {
     //   method: "POST",
