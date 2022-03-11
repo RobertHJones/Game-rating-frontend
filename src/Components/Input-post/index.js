@@ -43,26 +43,31 @@ export default function InputPost() {
     const finalData = Object.assign(gamePostData, { band: band });
     console.log(finalData);
 
-    const { title, rating, genre, year, developer, comments, image } =
-      finalData;
+    const { title, rating, genre, year, developer, comments } = finalData;
 
-    // const post = await fetch(`${API_URL}`, {
-    //   method: "POST",
-    //   header: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     title: title,
-    //     rating: rating,
-    //     band: band,
-    //     genre: genre,
-    //     year: year,
-    //     developer: developer,
-    //     comments: comment,
-    //     image: "https://www.elevana.com/images/blogs/Shrug.jpg", // use cloudinary
-    //   }),
-    // });
-    // const result = post.json();
+    console.log(title, rating, band, genre, year, developer, comments);
+
+    const response = await fetch(`${API_URL}`, {
+      method: "POST",
+      header: {
+        "Content-Type": "application/json",
+      },
+
+      body: JSON.stringify({
+        title: title,
+        rating: rating,
+        band: band,
+        genre: genre,
+        year: year,
+        developer: developer,
+        comments: comments,
+        image: "https://www.elevana.com/images/blogs/Shrug.jpg", // use cloudinary
+      }),
+    });
+
+    console.log(response);
+    const result = response.json();
+    console.log(result);
   }
 
   return (
@@ -120,9 +125,9 @@ export default function InputPost() {
           />
           <textarea
             id="commentbox"
-            name="comment"
+            name="comments"
             placeholder="Enter your comments here"
-            {...register("comment")}
+            {...register("comments")}
           ></textarea>
           <button className="game-button">Submit</button>
           <ImageUploader picture={propertyInfo} />
