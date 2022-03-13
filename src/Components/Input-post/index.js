@@ -9,7 +9,7 @@ export default function InputPost() {
   const { register, handleSubmit } = useForm();
   const [uploadedImages, setUploadedImages] = useState("");
 
-  const propertyInfo = (images) => {
+  const gameImage = (images) => {
     setUploadedImages(images);
   };
 
@@ -130,7 +130,7 @@ export default function InputPost() {
             {...register("comments")}
           ></textarea>
           <button className="game-button">Submit</button>
-          <ImageUploader picture={propertyInfo} />
+          <ImageUploader picture={gameImage} />
         </div>
       </form>
     </div>
