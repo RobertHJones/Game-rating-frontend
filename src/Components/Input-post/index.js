@@ -2,6 +2,7 @@ import "./index.css";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import ImageUploader from "../ImageUploader";
+import axios from "axios";
 
 const API_URL = "https://dbdb-game-db.herokuapp.com/games";
 
@@ -47,27 +48,38 @@ export default function InputPost() {
 
     console.log(title, rating, band, genre, year, developer, comments);
 
-    const response = await fetch(`${API_URL}`, {
-      method: "POST",
-      header: {
-        "Content-Type": "application/json",
-      },
+    // const response = await fetch(`${API_URL}`, {
+    //   method: "POST",
+    //   header: {
+    //     "Content-Type": "application/json",
+    //   },
 
-      body: JSON.stringify({
-        title: title,
-        rating: rating,
-        band: band,
-        genre: genre,
-        year: year,
-        developer: developer,
-        comments: comments,
-        image: "https://www.elevana.com/images/blogs/Shrug.jpg", // use cloudinary
-      }),
+    //   body: JSON.stringify({
+    //     title: title,
+    //     rating: rating,
+    //     band: band,
+    //     genre: genre,
+    //     year: year,
+    //     developer: developer,
+    //     comments: comments,
+    //     image: "https://www.elevana.com/images/blogs/Shrug.jpg", // use cloudinary
+    //   }),
+    // });
+
+    // console.log(response);
+    // const result = response.json();
+    // console.log(result);
+
+    const submit = axios.post(`${API_URL}`, {
+      title: title,
+      rating: rating,
+      band: band,
+      genre: genre,
+      year: year,
+      developer: developer,
+      comments: comments,
+      image: "https://www.elevana.com/images/blogs/Shrug.jpg",
     });
-
-    console.log(response);
-    const result = response.json();
-    console.log(result);
   }
 
   return (
