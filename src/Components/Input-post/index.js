@@ -71,7 +71,7 @@ export default function InputPost() {
     // const result = response.json();
     // console.log(result);
 
-    const submit = axios.post(`http://localhost:5000/`, {
+    const submit = axios.post(`http://localhost:5000/games`, {
       title: title,
       rating: rating,
       band: band,
