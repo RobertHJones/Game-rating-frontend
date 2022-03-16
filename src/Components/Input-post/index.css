@@ -9,7 +9,8 @@ h3 {
 #ratinginput,
 #genreinput,
 #yearinput,
-#developerinput {
+#developerinput,
+#imageinput {
   height: 2rem;
   width: 10%;
   font-family: "Yu Gothic", Arial;

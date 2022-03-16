@@ -8,11 +8,11 @@ const API_URL = "https://dbdb-game-db.herokuapp.com/games";
 
 export default function InputPost() {
   const { register, handleSubmit } = useForm();
-  const [uploadedImages, setUploadedImages] = useState("");
+  // const [uploadedImages, setUploadedImages] = useState("");
 
-  const gameImage = (images) => {
-    setUploadedImages(images);
-  };
+  // const gameImage = (images) => {
+  //   setUploadedImages(images);
+  // };
 
   function getBand(str) {
     const num = Number(str);
@@ -33,15 +33,15 @@ export default function InputPost() {
   }
 
   async function onFormSubmit(data) {
-    const gamePostData = Object.assign(data, {
-      image: uploadedImages,
-    });
+    // const gamePostData = Object.assign(data, {
+    //   image: uploadedImages,
+    // });
     // console.log(gamePostData);
 
-    const band = getBand(gamePostData.rating);
+    const band = getBand(data.rating);
     console.log("the band is", band);
 
-    const finalData = Object.assign(gamePostData, { band: band });
+    const finalData = Object.assign(data, { band: band });
     console.log(finalData);
 
     const { title, rating, genre, year, developer, comments, image } =
@@ -71,7 +71,7 @@ export default function InputPost() {
     // const result = response.json();
     // console.log(result);
 
-    const submit = axios.post(`http://localhost:5000/games`, {
+    const submit = axios.post(`${API_URL}`, {
       title: title,
       rating: rating,
       band: band,
@@ -143,8 +143,14 @@ export default function InputPost() {
             placeholder="Enter your comments here"
             {...register("comments")}
           ></textarea>
+          <input
+            name="image"
+            id="imageinput"
+            placeholder="Image Link"
+            {...register("image")}
+          />
           <button className="game-button">Submit</button>
-          <ImageUploader picture={gameImage} />
+          {/* <ImageUploader picture={gameImage} /> */}
         </div>
       </form>
     </div>
