@@ -44,9 +44,10 @@ export default function InputPost() {
     const finalData = Object.assign(gamePostData, { band: band });
     console.log(finalData);
 
-    const { title, rating, genre, year, developer, comments } = finalData;
+    const { title, rating, genre, year, developer, comments, image } =
+      finalData;
 
-    console.log(title, rating, band, genre, year, developer, comments);
+    console.log(title, rating, band, genre, year, developer, comments, image);
 
     // const response = await fetch(`${API_URL}`, {
     //   method: "POST",
@@ -70,7 +71,7 @@ export default function InputPost() {
     // const result = response.json();
     // console.log(result);
 
-    const submit = axios.post(`${API_URL}`, {
+    const submit = axios.post(`http://localhost:5000/`, {
       title: title,
       rating: rating,
       band: band,
@@ -78,7 +79,8 @@ export default function InputPost() {
       year: year,
       developer: developer,
       comments: comments,
-      image: "https://www.elevana.com/images/blogs/Shrug.jpg",
+      image: image,
+      // image: "https://www.elevana.com/images/blogs/Shrug.jpg",
     });
   }
 

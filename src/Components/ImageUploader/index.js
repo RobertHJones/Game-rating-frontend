@@ -5,7 +5,7 @@ import "./index.css";
 function ImageUploader({ picture }) {
   const [images, setImages] = useState([]);
 
-  const previewFile = (e, file) => {
+  const base64Converter = (e, file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
@@ -20,7 +20,7 @@ function ImageUploader({ picture }) {
   const handleClick = (e) => {
     const file = e.target.files[0];
     console.log(file);
-    previewFile(e, file);
+    base64Converter(e, file);
   };
 
   useEffect(() => {
