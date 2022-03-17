@@ -130,8 +130,8 @@ export default function InputPost() {
             placeholder="Image Link"
             {...register("image")}
           /> */}
-          <button className="game-button">Submit</button>
           <ImageUploader picture={gameImage} />
+          <button className="game-button">Submit</button>
         </div>
       </form>
     </div>
