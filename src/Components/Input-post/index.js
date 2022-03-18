@@ -61,9 +61,9 @@ export default function InputPost() {
       image: image,
       // image: "https://www.elevana.com/images/blogs/Shrug.jpg",
     });
-    // setTimeout(() => {
-    //   window.location.reload(false);
-    // }, 500);
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 500);
 
     alert(`${title} added to database`);
   }
