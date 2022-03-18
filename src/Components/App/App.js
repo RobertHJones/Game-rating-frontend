@@ -7,6 +7,7 @@ import { useState } from "react";
 // import API_URL from "../../config/index";
 
 const API_URL = "https://dbdb-game-db.herokuapp.com/games";
+// const API_URL = "https://game-database-rob.herokuapp.com/games";
 
 function App() {
   const [gameData, setGameData] = useState([]);
@@ -26,8 +27,6 @@ function App() {
     console.log(data.payload);
     setGameData(data.payload);
   }
-
-  // game not fetching on the deploy - fix this
 
   return (
     <div className="App">

@@ -5,6 +5,7 @@ import ImageUploader from "../ImageUploader";
 import axios from "axios";
 
 const API_URL = "https://dbdb-game-db.herokuapp.com/games";
+// const API_URL = "https://game-database-rob.herokuapp.com/games";
 
 export default function InputPost() {
   const { register, handleSubmit } = useForm();
@@ -60,9 +61,9 @@ export default function InputPost() {
       image: image,
       // image: "https://www.elevana.com/images/blogs/Shrug.jpg",
     });
-    setTimeout(() => {
-      window.location.reload(false);
-    }, 500);
+    // setTimeout(() => {
+    //   window.location.reload(false);
+    // }, 500);
 
     alert(`${title} added to database`);
   }
