@@ -63,6 +63,8 @@ export default function InputPost() {
     setTimeout(() => {
       window.location.reload(false);
     }, 500);
+
+    alert(`${title} added to database`);
   }
 
   return (
