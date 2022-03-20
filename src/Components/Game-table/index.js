@@ -2,7 +2,7 @@ import "./index.css";
 
 // usestate to set the state of the table, initial state as blank and then set it as games
 
-export default function GameTable({ details }) {
+export default function GameTable({ details, error }) {
   return (
     <div class="gamecontainer">
       <table class="thegames">
@@ -18,7 +18,8 @@ export default function GameTable({ details }) {
         </thead>
         {details.length === 0 && (
           <tbody>
-            <td id="Title">No results found - make a new search</td>
+            {/* <td id="Title">No results found - make a new search</td> */}
+            <td>{error}</td>
             <td></td>
             <td></td>
             <td></td>

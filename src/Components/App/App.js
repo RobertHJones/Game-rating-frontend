@@ -11,8 +11,10 @@ const API_URL = "https://dbdb-game-db.herokuapp.com/games";
 
 function App() {
   const [gameData, setGameData] = useState([]);
+  const [error, setError] = useState("");
 
   async function fetchGames(title, genre, rating) {
+    setError(`${title} not found, please search again`);
     // const { title, genre, rating } = game;
     console.log("this is", title);
     // // destructure the object here
@@ -32,7 +34,7 @@ function App() {
     <div className="App">
       <Header />
       <InputGet onSubmit={fetchGames} />
-      <GameTable details={gameData} key={gameData.id} />
+      <GameTable details={gameData} error={error} key={gameData.id} />
       <InputPost />
     </div>
   );

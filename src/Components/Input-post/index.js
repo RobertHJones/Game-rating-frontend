@@ -66,6 +66,7 @@ export default function InputPost() {
     }, 500);
 
     alert(`${title} added to database`);
+    console.log(submit);
   }
 
   return (

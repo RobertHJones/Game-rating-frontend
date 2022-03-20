@@ -14,7 +14,6 @@ function ImageUploader({ picture }) {
         ...images,
         { name: e.target.files[0].name, base64: base64Image },
       ]);
-      console.log("this is images", base64Image);
     };
   };
 
