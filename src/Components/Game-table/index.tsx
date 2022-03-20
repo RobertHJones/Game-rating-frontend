@@ -1,11 +1,26 @@
 import "./index.css";
 
-// usestate to set the state of the table, initial state as blank and then set it as games
+// props for mapping through the game array
+type props = {
+  title: string;
+  rating: number;
+  genre: string;
+  year: number;
+  developer: string;
+  comments: string;
+  image: string;
+};
 
-export default function GameTable({ details, error }) {
+type functionProps = {
+  details: any[];
+  error: string;
+};
+
+// usestate to set the state of the table, initial state as blank and then set it as games
+export default function GameTable({ details, error }: functionProps) {
   return (
-    <div class="gamecontainer">
-      <table class="thegames">
+    <div className="gamecontainer">
+      <table className="thegames">
         {" "}
         <thead>
           <th>Title</th>
@@ -18,7 +33,6 @@ export default function GameTable({ details, error }) {
         </thead>
         {details.length === 0 && (
           <tbody>
-            {/* <td id="Title">No results found - make a new search</td> */}
             <td>{error}</td>
             <td></td>
             <td></td>
@@ -29,7 +43,7 @@ export default function GameTable({ details, error }) {
           </tbody>
         )}
         {details.length > 0 &&
-          details.map((item) => {
+          details.map((item: props) => {
             return (
               <tbody>
                 <td id="Title">{item.title}</td>

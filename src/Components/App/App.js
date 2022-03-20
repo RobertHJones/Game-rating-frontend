@@ -14,17 +14,16 @@ function App() {
   const [error, setError] = useState("");
 
   async function fetchGames(title, genre, rating) {
-    setError(`${title} not found, please search again`);
     // const { title, genre, rating } = game;
     console.log("this is", title);
     // // destructure the object here
     const response = await fetch(
-      // `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
       `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
     );
     console.log("response", response);
 
     const data = await response.json();
+    setError(`${title} not found, please search again`);
 
     console.log(data.payload);
     setGameData(data.payload);
