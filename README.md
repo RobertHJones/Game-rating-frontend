@@ -6,6 +6,10 @@ This app is to keep track of all the games I've played, and what I thought of th
 
 <img src="./games.png" alt="example" width="800px" height="auto"  />
 
+<img src="./lighthouse.png" alt="example" width="800px" height="auto"  />
+
+Lighthouse score
+
 ## FAQ
 
 #### Why can't I search by multiple parameters?
