@@ -5,19 +5,19 @@ import ImageUploader from "../ImageUploader";
 import axios from "axios";
 
 const API_URL = "https://dbdb-game-db.herokuapp.com/games";
-// const API_URL = "https://game-database-rob.herokuapp.com/games";
 
 export default function InputPost() {
   const { register, handleSubmit } = useForm();
   const [uploadedImages, setUploadedImages] = useState("");
 
-  const gameImage = (images) => {
+  // take the image from uploader and set as uploadedImages
+  function gameImage(images) {
     setUploadedImages(images);
-  };
+  }
 
+  // get the score band from the rating
   function getBand(str) {
     const num = Number(str);
-    console.log(num);
     if (num <= 20) {
       return "0-20";
     } else if (num <= 40) {
@@ -34,21 +34,19 @@ export default function InputPost() {
   }
 
   async function onFormSubmit(data) {
+    // put image into object
     const gamePostData = Object.assign(data, {
       image: uploadedImages,
     });
-    console.log(gamePostData);
 
     const band = getBand(gamePostData.rating);
-    console.log("the band is", band);
 
+    // put band into object
     const finalData = Object.assign(gamePostData, { band: band });
-    console.log(finalData);
 
+    // destructure the object
     const { title, rating, genre, year, developer, comments, image } =
       finalData;
-
-    console.log(title, rating, band, genre, year, developer, comments, image);
 
     const submit = axios.post(`${API_URL}`, {
       title: title,
@@ -59,8 +57,10 @@ export default function InputPost() {
       developer: developer,
       comments: comments,
       image: image,
-      // image: "https://www.elevana.com/images/blogs/Shrug.jpg",
+      // image: "https://www.elevana.com/images/blogs/Shrug.jpg", original placeholder
     });
+
+    // refresh page on submit, after alert
     setTimeout(() => {
       window.location.reload(false);
     }, 500);

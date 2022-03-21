@@ -4,28 +4,23 @@ import InputGet from "../Input-get";
 import GameTable from "../Game-table";
 import InputPost from "../Input-post";
 import { useState } from "react";
-// import API_URL from "../../config/index";
 
+// the API url
 const API_URL = "https://dbdb-game-db.herokuapp.com/games";
-// const API_URL = "https://game-database-rob.herokuapp.com/games";
 
 function App() {
   const [gameData, setGameData] = useState([]);
   const [error, setError] = useState("");
 
   async function fetchGames(title, genre, rating) {
-    // const { title, genre, rating } = game;
-    console.log("this is", title);
-    // // destructure the object here
+    //  destructure the object here
     const response = await fetch(
       `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
     );
-    console.log("response", response);
-
+    // for if no results are found for the search
     const data = await response.json();
     setError(`${title} not found, please search again`);
 
-    console.log(data.payload);
     setGameData(data.payload);
   }
 

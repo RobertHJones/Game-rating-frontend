@@ -1,6 +1,6 @@
 import "./index.css";
 
-// props for mapping through the game array
+// defining the types for mapping through the game array
 type props = {
   title: string;
   rating: number;
@@ -11,6 +11,7 @@ type props = {
   image: string;
 };
 
+// defining the types for the function
 type functionProps = {
   details: any[];
   error: string;

@@ -1,28 +1,31 @@
-import React from "react";
 import { useState } from "react";
 
 import "./index.css";
 
-export default function InputGet({ onSubmit }) {
+// defining the types for the input fields
+type props = {
+  onSubmit: (title: string, genre: string, rating: string) => void;
+};
+
+export default function InputGet({ onSubmit }: props) {
   const [genre, setGenre] = useState("");
   const [rating, setRating] = useState("");
   const [title, setTitle] = useState("");
 
-  function getTitleValue(e) {
+  // take values from submitted data
+  function getTitleValue(e: React.ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value);
-    console.log(title);
   }
 
-  function getGenreValue(e) {
+  function getGenreValue(e: React.ChangeEvent<HTMLSelectElement>) {
     setGenre(e.target.value);
-    console.log(genre);
   }
 
-  function getRatingValue(e) {
+  function getRatingValue(e: React.ChangeEvent<HTMLSelectElement>) {
     setRating(e.target.value);
-    console.log(rating);
   }
 
+  // use game details for search
   function searchGames(e) {
     e.preventDefault();
 
@@ -39,7 +42,7 @@ export default function InputGet({ onSubmit }) {
           placeholder="Title"
           onChange={getTitleValue}
         />
-        <label for="genres" class="label">
+        <label htmlFor="genres" className="label">
           Choose a genre
         </label>
         <select id="genres" name="genre" onChange={getGenreValue}>
@@ -61,7 +64,7 @@ export default function InputGet({ onSubmit }) {
           <option value="Third Person Action">Third Person Action</option>
           <option value="Turn Based Strategy">Turn Based Strategy</option>
         </select>
-        <label for="ratings" class="label">
+        <label htmlFor="ratings" className="label">
           Choose Rob's rating (%)
         </label>
         <select id="ratings" name="rating" onChange={getRatingValue}>
@@ -72,7 +75,7 @@ export default function InputGet({ onSubmit }) {
           <option value="20-40">20-40</option>
           <option value="0-20">0-20</option>
         </select>
-        <button onClick={searchGames} class="game-button">
+        <button onClick={searchGames} className="game-button">
           Search
         </button>
       </div>
