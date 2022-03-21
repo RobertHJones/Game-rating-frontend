@@ -31,9 +31,10 @@ function ImageUploader({ picture }) {
 
   return (
     <div>
-      <div>Upload your image here</div>
-      <input type="file" onChange={handleClick} />
-
+      <label>
+        <div>Upload your image here</div>
+        <input type="file" onChange={handleClick} />
+      </label>
       {images !== undefined ? (
         // display the name of uploaded image
         images.map((item, index) => (

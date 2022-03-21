@@ -71,7 +71,7 @@ export default function InputPost() {
 
   return (
     <div>
-      <h3>Input your own game here</h3>
+      <h2>Input your own game here</h2>
       <form onSubmit={handleSubmit(onFormSubmit)}>
         <div id="inputs">
           <input
