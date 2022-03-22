@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "../Header/index";
 import InputGet from "../Input-get";
 import GameTable from "../Game-table";
-import InputPost from "../Input-post";
+import InputPost from "../Input-post/index.tsx";
 import { useState } from "react";
 
 // the API url
