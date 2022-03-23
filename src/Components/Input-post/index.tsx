@@ -1,7 +1,7 @@
 import "./index.css";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import ImageUploader from "../ImageUploader";
+import ImageUploader from "../ImageUploader/indextwo";
 import axios from "axios";
 
 const API_URL = "https://dbdb-game-db.herokuapp.com/games";

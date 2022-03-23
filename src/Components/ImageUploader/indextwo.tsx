@@ -1,12 +1,17 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import "./index.css";
 
-function ImageUploader({ picture }) {
-  const [images, setImages] = useState([]);
+export default function ImageUploader({ picture }) {
+  const [images, setImages] = useState<
+    Array<{
+      name: string;
+      base64: string | ArrayBuffer | null;
+    }>
+  >([]);
 
   // convert the image to base 64 to use for post request
-  const base64Converter = (e, file) => {
+  const base64Converter = (e, file: Blob) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
@@ -48,5 +53,3 @@ function ImageUploader({ picture }) {
     </div>
   );
 }
-
-export default ImageUploader;
