@@ -26,7 +26,7 @@ export default function InputGet({ onSubmit }: props) {
   }
 
   // use game details for search
-  function searchGames(e) {
+  function searchGames(e: React.MouseEvent<HTMLElement>) {
     e.preventDefault();
 
     onSubmit(title, genre, rating);

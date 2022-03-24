@@ -2,17 +2,28 @@ import "./App.css";
 import Header from "../Header/index";
 import InputGet from "../Input-get";
 import GameTable from "../Game-table";
-import InputPost from "../Input-post/index.tsx";
+import InputPost from "../Input-post/index";
 import { useState } from "react";
 
 // the API url
 const API_URL = "https://dbdb-game-db.herokuapp.com/games";
 
 function App() {
-  const [gameData, setGameData] = useState([]);
   const [error, setError] = useState("");
+  const [gameData, setGameData] = useState<
+    Array<{
+      id: number;
+      title: string;
+      rating: string;
+      genre: string;
+      year: number;
+      developer: string;
+      comments: string;
+      image: string;
+    }>
+  >([]);
 
-  async function fetchGames(title, genre, rating) {
+  async function fetchGames(title: string, genre: string, rating: string) {
     //  destructure the object here
     const response = await fetch(
       `${API_URL}/?title=${title}&genre=${genre}&band=${rating}`
@@ -28,7 +39,7 @@ function App() {
     <div className="App">
       <Header />
       <InputGet onSubmit={fetchGames} />
-      <GameTable details={gameData} error={error} key={gameData.id} />
+      <GameTable details={gameData} error={error} />
       <InputPost />
     </div>
   );

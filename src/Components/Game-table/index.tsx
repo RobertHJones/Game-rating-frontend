@@ -3,7 +3,7 @@ import "./index.css";
 // defining the types for mapping through the game array
 type props = {
   title: string;
-  rating: number;
+  rating: string;
   genre: string;
   year: number;
   developer: string;
@@ -44,9 +44,9 @@ export default function GameTable({ details, error }: functionProps) {
           </tbody>
         )}
         {details.length > 0 &&
-          details.map((item: props) => {
+          details.map((item: props, index) => {
             return (
-              <tbody>
+              <tbody key={index}>
                 <td id="Title">{item.title}</td>
                 <td id="Rating">{item.rating}</td>
                 <td id="Genre">{item.genre}</td>
