@@ -27,21 +27,16 @@ export default function InputPost() {
   // get the score band from the rating
   function getBand(str: string) {
     const num = Number(str);
-    if (num <= 20) {
-      return "0-20";
-    }
-    if (num <= 40) {
-      return "20-40";
-    }
-    if (num <= 60) {
-      return "40-60";
-    }
-    if (num <= 80) {
-      return "60-80";
-    }
-    if (num <= 100) {
-      return "80-100";
-    }
+    if (num <= 20) return "0-20";
+
+    if (num <= 40) return "20-40";
+
+    if (num <= 60) return "40-60";
+
+    if (num <= 80) return "60-80";
+
+    if (num <= 100) return "80-100";
+
     return "N/A";
   }
 
