@@ -12,7 +12,6 @@ function App() {
   const [error, setError] = useState("");
   const [gameData, setGameData] = useState<
     Array<{
-      id: number;
       title: string;
       rating: string;
       genre: string;
