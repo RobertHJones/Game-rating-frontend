@@ -29,17 +29,20 @@ export default function InputPost() {
     const num = Number(str);
     if (num <= 20) {
       return "0-20";
-    } else if (num <= 40) {
-      return "20-40";
-    } else if (num <= 60) {
-      return "40-60";
-    } else if (num <= 80) {
-      return "60-80";
-    } else if (num <= 100) {
-      return "80-100";
-    } else {
-      return "N/A";
     }
+    if (num <= 40) {
+      return "20-40";
+    }
+    if (num <= 60) {
+      return "40-60";
+    }
+    if (num <= 80) {
+      return "60-80";
+    }
+    if (num <= 100) {
+      return "80-100";
+    }
+    return "N/A";
   }
 
   async function onFormSubmit(data: props) {
