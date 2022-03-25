@@ -11,11 +11,15 @@ export default function ImageUploader({ picture }) {
   >([]);
 
   // convert the image to base 64 to use for post request
-  const base64Converter = (e, file: Blob) => {
+  const base64Converter = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    file: Blob
+  ) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onloadend = () => {
       const base64Image = reader.result;
+      if (!e.target.files) return;
       // add image to the array as an object
       setImages([
         ...images,
@@ -24,7 +28,8 @@ export default function ImageUploader({ picture }) {
     };
   };
 
-  const handleClick = (e) => {
+  const handleClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (!e.target.files) return;
     const file = e.target.files[0];
     // use the base64 converter on uploaded image
     base64Converter(e, file);
