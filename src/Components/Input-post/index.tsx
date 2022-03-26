@@ -68,11 +68,11 @@ export default function InputPost() {
     });
 
     // refresh page on submit, after alert
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 200);
 
     alert(`${title} added to database`);
+    setTimeout(() => {
+      window.location.reload();
+    }, 200);
     console.log(submit);
   }
 
