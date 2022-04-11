@@ -27,4 +27,5 @@ th + th + th + th + th + th {
 #Image {
   width: 400px;
   height: auto;
+  border: 2px solid rgb(250, 243, 243);
 }
