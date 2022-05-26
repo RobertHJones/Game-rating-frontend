@@ -1,31 +1,55 @@
 .thegames {
-  font-size: 2.5rem;
+  font-size: 1rem;
 }
 
 .gamecontainer {
   display: flex;
   flex-direction: column;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 th,
 td {
-  width: 18rem;
+  width: 7rem;
   text-align: center;
   border: 1px solid rgb(250, 243, 243);
   padding: 1rem;
 }
 
 th + th + th + th + th + th {
-  width: 35rem;
+  width: 10rem;
 }
 
 #Comments {
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 #Image {
   width: 400px;
   height: auto;
   border: 2px solid rgb(250, 243, 243);
+}
+
+@media only screen and (min-width: 1024px) {
+  .thegames {
+    font-size: 2.5rem;
+  }
+  .gamecontainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2rem;
+  }
+  th,
+  td {
+    width: 18rem;
+    text-align: center;
+    border: 1px solid rgb(250, 243, 243);
+    padding: 1rem;
+  }
+  th + th + th + th + th + th {
+    width: 35rem;
+  }
+  #Comments {
+    font-size: 2rem;
+  }
 }

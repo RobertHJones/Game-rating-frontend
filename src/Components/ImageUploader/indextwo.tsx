@@ -42,7 +42,7 @@ export default function ImageUploader({ picture }) {
   return (
     <div>
       <label>
-        <div>Upload your image here</div>
+        <div className="imagetext">Upload your image here</div>
         <input type="file" onChange={handleClick} />
       </label>
       {images !== undefined ? (
