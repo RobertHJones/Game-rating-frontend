@@ -3,5 +3,13 @@ button {
   height: 1rem;
   text-align: center;
 }
+
+.image-text {
+  font-size: 1rem;
+}
+
 @media only screen and (min-width: 1024px) {
+  .imagetext {
+    font-size: 2rem;
+  }
 }
