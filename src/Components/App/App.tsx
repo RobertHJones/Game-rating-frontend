@@ -43,7 +43,7 @@ function App() {
 
     setGameData(data.payload);
   }
-  const randomNumber = Math.ceil(Math.random() * 40);
+  const randomNumber: number = Math.ceil(Math.random() * 40);
 
   // get random game on first load
   useEffect(() => {
