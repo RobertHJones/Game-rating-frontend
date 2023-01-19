@@ -12,9 +12,9 @@ Lighthouse score
 
 ## FAQ
 
-#### Why can't I search by multiple parameters?
+<!--- #### Why can't I search by multiple parameters?
 
-I may choose to add this in, but due to the number of games in the database not being that high yet I feel that the search function is currently best served by operating individually for each parameter.
+I may choose to add this in, but due to the number of games in the database not being that high yet I feel that the search function is currently best served by operating individually for each parameter. --->
 
 #### Why do I have to add by your specified genres, rather than add my own one in?
 
